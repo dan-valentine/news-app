@@ -1,4 +1,4 @@
-insert into users 
+INSERT INTO users 
 ( 
         auth_id, 
         username, 
@@ -6,11 +6,12 @@ insert into users
         name, 
         img
     )
-    values 
+    VALUES 
     (
         $1, 
         $2,
         $3,
         $4,
         $5
-    );
+    )
+    RETURNING *;

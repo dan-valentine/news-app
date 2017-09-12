@@ -1,6 +1,5 @@
 UPDATE users SET
 ( 
-        auth_id, 
         username, 
         email, 
         name, 
@@ -11,8 +10,7 @@ UPDATE users SET
         $2,
         $3,
         $4,
-        $5,
-        $6
+        $5
     )
     WHERE 
     user_id = $1;
