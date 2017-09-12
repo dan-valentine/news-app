@@ -13,5 +13,8 @@ CREATE TABLE news_source_look_up
     (
         news_source_look_up_id SERIAL PRIMARY KEY,
         source_id VARCHAR(40),
-        user_id integer references users
+        name VARCHAR(60),
+        description TEXT,
+        url TEXT,
+        user_id INTEGER REFERENCES users
     );
