@@ -7,4 +7,5 @@ INSERT INTO news_source_look_up
     (
         $1, 
         $2
-    );
+    )
+    RETURNING *;
