@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import NewsSources from './NewsSources/NewsSources';
 import NewsPanel from './NewsPanel/NewsPanel';
 import Header from './../Header/Header';
-import axios from 'axios';
+import './Dashboard.css';
 
 export default class Dashboard extends Component {
     constructor(){
@@ -52,7 +53,7 @@ export default class Dashboard extends Component {
                 outlet={outlet} />
         )
         return (
-            <div>
+            <div className='dashboard_container'>
                 <Header/>
                 <NewsSources 
                     followedOutlets={this.state.followedOutlets}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import NewsOutlet from './NewsOutlet/NewsOutlet';
 import axios from 'axios';
+import NewsOutlet from './NewsOutlet/NewsOutlet';
+import './NewsSources.css';
 
 export default class Sources extends Component {
     constructor(props){
@@ -35,7 +36,7 @@ export default class Sources extends Component {
                 />
         )
         return (
-            <div>
+            <div className='outlets_container'>
                 {newsOutletArr}
             </div>
         );

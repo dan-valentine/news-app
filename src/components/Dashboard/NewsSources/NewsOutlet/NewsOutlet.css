@@ -1,4 +1,40 @@
 .outlet_container{
     border-radius: 5px;
-    border: 1px red solid;
+    background: #ECE8DD;
+    margin: 10px;
+}
+.outlet_title{
+    font-size: 24px;
+}
+.outlet_description{
+    font-weight: 500;
+}
+.button_container{
+    display: flex;
+    justify-content: flex-end;
+}
+.follow_button{
+    margin: 8px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    background: #3D6272;
+}
+.follow_button:hover{
+    background: rgba(67, 98, 112, 0.85);
+}
+.unfollow_button{
+    margin: 8px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+    background: #FF5102;
+
+}
+.unfollow_button:hover{
+    background: rgba(255, 81, 2, 0.90)
 }
