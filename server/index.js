@@ -27,13 +27,14 @@ app.use(session({
 ///COMMENET OUT WHEN AUTH0 READY///
 ///////////////////////////////////
 app.use((req, res, next) =>{
-    req.session.user = {
-        userID: 1,
-        username: "douglsey", 
-        email: "doug@dogmail.com", 
-        name: "Doug Dogman", 
-        img : "http://www.placekitten.com/200/250"
-
+    if(!req.session.user){
+        req.session.user = {
+            userID: 1,
+            username: "douglsey", 
+            email: "doug@dogmail.com", 
+            name: "Doug Dogman", 
+            img : "http://www.placekitten.com/200/250"
+        }
     }
     next();
 })
@@ -62,7 +63,7 @@ app.delete('/api/news_sources', sourceCtr.removeSource);
 
 //user endpoints
 app.put('/api/user', userCtr.updateUser);
-
+app.get('/api/user', userCtr.getUSer);
 
 ///////////////
 ///LISTENING///
