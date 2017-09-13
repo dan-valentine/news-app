@@ -24,7 +24,6 @@ export default class Dashboard extends Component {
     }
 
     followOutlet(body){
-        console.log(body)
         axios.post('/api/news_sources', body).then(resp =>{
             axios.get('/api/news_sources').then(resp =>{
                 this.setState({
@@ -34,9 +33,7 @@ export default class Dashboard extends Component {
         });
     }
 
-    unfollowOutlet(body){
-        console.log(JSON.stringify(body));
-        let {sourceID} = body;
+    unfollowOutlet(sourceID){
         axios.delete(`/api/news_sources?sourceID=${sourceID}`).then(_ =>{
             axios.get('/api/news_sources').then(resp =>{
                 this.setState({
