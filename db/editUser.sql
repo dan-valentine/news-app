@@ -2,15 +2,14 @@ UPDATE users SET
 ( 
         username, 
         email, 
-        name, 
-        img
+        name
     )
     = 
     (
         $2,
         $3,
-        $4,
-        $5
+        $4
     )
     WHERE 
-    user_id = $1;
+    user_id = $1
+    returning *;

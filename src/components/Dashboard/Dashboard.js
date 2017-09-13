@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewsSources from './NewsSources/NewsSources';
 import NewsPanel from './NewsPanel/NewsPanel';
+import Header from './../Header/Header';
 import axios from 'axios';
 
 export default class Dashboard extends Component {
@@ -52,6 +53,7 @@ export default class Dashboard extends Component {
         )
         return (
             <div>
+                <Header/>
                 <NewsSources 
                     followedOutlets={this.state.followedOutlets}
                     followOutlet={this.followOutlet}
