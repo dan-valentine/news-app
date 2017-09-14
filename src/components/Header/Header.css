@@ -20,3 +20,9 @@
 .setting_icon{
     width: 25px;
 }
+@media(min-width: 1200px){
+    .header_container{
+        margin-bottom: 0;
+    }
+    
+}
