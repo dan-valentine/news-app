@@ -16,8 +16,15 @@ export default class NewsPanel extends Component {
                 articles: resp.data.articles
             })
         })
-        
     }
+    componentWillReceiveProps(nextProps){
+        axios.get(`https://newsapi.org/v1/articles?source=${nextProps.outlet.source_id}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`).then(resp =>{
+            this.setState({
+                articles: resp.data.articles
+            })
+        })
+    }
+
     render () {
         
         let articlesArr = this.state.articles.map((article, i) => <NewsArticle key={i} article={article}/>)
