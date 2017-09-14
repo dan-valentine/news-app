@@ -11,22 +11,26 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border: solid 3px #FF5102;
-    
+    padding: 3px;  
 }
+
 .article_link{
     text-decoration-line: none;
 }
+
 .article_info h3{
-    font-size: 22px;
-    
+    font-size: 22px;    
 }
+
 .article_info h4{
     font-weight: 700;
 }
+
 .article_info h5{
     font-weight: 500;
     margin-bottom: 4px;
 }
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
     
