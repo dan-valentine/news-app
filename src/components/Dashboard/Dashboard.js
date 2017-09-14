@@ -9,7 +9,8 @@ export default class Dashboard extends Component {
     constructor(){
         super();
         this.state = {
-            followedOutlets: []
+            followedOutlets: [],
+            showSources: false
         };
 
         this.followOutlet = this.followOutlet.bind(this);
@@ -20,6 +21,18 @@ export default class Dashboard extends Component {
             this.setState({
                 followedOutlets: resp.data
             });
+        });
+    }
+
+    showSources(){
+        this.setState({
+            showSources: true
+        });
+    }
+
+    hideSources(){
+        this.setState({
+            showSources: false
         });
     }
 
@@ -52,11 +65,32 @@ export default class Dashboard extends Component {
         return (
             <div className='dashboard_container'>
                 <Header/>
-                <NewsSources 
+                <div>
+                    {
+                        this.state.showSources
+                        ? 
+                        <button className='show_sources_btn' onClick={_=>this.hideSources()}>&larr; Hide Sources </button>
+                        : 
+                        <button className='show_sources_btn' onClick={_=>this.showSources()}>Show Sources &rarr;</button>
+                    }
+                    </div>
+                <NewsSources
+                    showSources={this.state.showSources}
                     followedOutlets={this.state.followedOutlets}
                     followOutlet={this.followOutlet}
                     unfollowOutlet={this.unfollowOutlet}/>
-                {newsPanelArr}
+                {
+                    newsPanelArr.length > 0
+                    ? 
+                    newsPanelArr
+                    : 
+                    <div className="empty_news_panel_holder">
+                        <div className='empty_news_panel_holder_text'>
+                            <p>Once You follow a news outlet your stories will display here!</p>
+                        </div>    
+                    </div> 
+                    
+                    }
             </div>
         );
     }

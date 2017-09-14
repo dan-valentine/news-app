@@ -1,0 +1,21 @@
+.header_container{
+    background: #FF5102;
+    margin: -5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.links_container{
+    display: flex;
+    justify-content: space-between;
+}
+.link{
+    padding-right: 4px;
+    padding-left: 4px;
+    color: white;
+    text-decoration-line: none;
+}
+.setting_icon{
+    width: 25px;
+}

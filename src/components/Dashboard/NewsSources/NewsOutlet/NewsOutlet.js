@@ -5,13 +5,6 @@ export default class NewsOutlet extends Component{
     
     
     render(){
-        let body= {
-            sourceID: this.props.newsOutlet.id,
-            name: this.props.newsOutlet.name,
-            description: this.props.newsOutlet.description,
-            url: this.props.newsOutlet.url
-        }
-        // console.log(this.props.newsOutlet)
         return (
             <div className='outlet_container'>
                 <h3 className='outlet_title'>{this.props.newsOutlet.name}</h3>
@@ -22,7 +15,7 @@ export default class NewsOutlet extends Component{
                         if(this.props.newsOutlet.id === element.source_id){
                             return true
                         } 
-                        
+                        return false;
                     }).length
                 ?
                     

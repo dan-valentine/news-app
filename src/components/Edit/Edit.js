@@ -67,7 +67,7 @@ export default class Edit extends Component {
         return (
             <div>
                 <Header/>
-                <img src={this.state.img} />
+                <img src={this.state.img} alt='profile_image' />
                 <span>username: 
                     <input 
                         value={this.state.username} 

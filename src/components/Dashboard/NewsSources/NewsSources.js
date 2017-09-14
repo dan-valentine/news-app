@@ -8,7 +8,8 @@ export default class Sources extends Component {
         super(props);
         this.state = {
             sources: [],
-            followedOutlets: props.followedOutlets
+            followedOutlets: props.followedOutlets,
+            showSources: props.showSources
         }
         // console.log(props);
     }
@@ -22,7 +23,8 @@ export default class Sources extends Component {
 
     componentWillReceiveProps(nextProps){
         this.setState({
-            followedOutlets: nextProps.followedOutlets
+            followedOutlets: nextProps.followedOutlets,
+            showSources: nextProps.showSources
         });
     }
     render () {
@@ -36,7 +38,7 @@ export default class Sources extends Component {
                 />
         )
         return (
-            <div className='outlets_container'>
+            <div className={this.state.showSources ? "outlets_container show_sources" : "outlets_container"} >
                 {newsOutletArr}
             </div>
         );

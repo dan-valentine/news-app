@@ -1,4 +1,16 @@
+
 .outlets_container{
     background: #323851;
     padding: 5px;
+    position: absolute;
+    left: -100vw;
+    overflow: auto;
+    width: 100vw;
+    height: calc(100vh - 119px);
+    top: 119px;
+    transition: 1s ease-in-out
+}
+.show_sources{
+    transform: translateX(100vw);
+    transition: 1s ease-in-out   
 }

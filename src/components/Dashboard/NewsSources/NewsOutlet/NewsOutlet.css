@@ -21,6 +21,7 @@
     font-weight: 800;
     font-size: 18px;
     background: #3D6272;
+    cursor: pointer;
 }
 .follow_button:hover{
     background: rgba(67, 98, 112, 0.85);
@@ -33,6 +34,7 @@
     font-weight: 800;
     font-size: 18px;
     background: #FF5102;
+    cursor: pointer;
 
 }
 .unfollow_button:hover{

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NewsArticle from './NewsArticle/NewsArticle';
+import './NewsPanel.css';
 
 export default class NewsPanel extends Component {
     constructor(){
@@ -21,9 +22,11 @@ export default class NewsPanel extends Component {
         
         let articlesArr = this.state.articles.map((article, i) => <NewsArticle key={i} article={article}/>)
         return (
-            <div>
-                <h2>{this.props.outlet.name}</h2>
-                <h3>{this.props.outlet.description}</h3>
+            <div className='news_panel_container'>
+                <div className='news_panel_title'>
+                    <h2>{this.props.outlet.name}</h2>
+                    <h3>{this.props.outlet.description}</h3>
+                </div>
                 {articlesArr}
             </div>
             
