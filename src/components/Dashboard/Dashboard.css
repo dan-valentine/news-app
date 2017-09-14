@@ -1,8 +1,8 @@
 .dashboard_container {
-    width: 100vw;
+    width: 100%;
     padding: 5px;
     background: #6BCAE9;
-    min-height: 100vh
+    min-height: 100vh;
 }
 .show_sources_btn{
     padding: 5px;
@@ -23,4 +23,28 @@
     margin: 3px;
     border-radius: 5px;
     background: white;
+}
+.hidden_panel{
+    height: calc(100vh - 144px);
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .show_sources_btn{
+        display: none;
+    }
+    .container{
+        display: flex;
+    }
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
 }

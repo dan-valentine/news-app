@@ -74,23 +74,27 @@ export default class Dashboard extends Component {
                         <button className='show_sources_btn' onClick={_=>this.showSources()}>Show Sources &rarr;</button>
                     }
                     </div>
-                <NewsSources
-                    showSources={this.state.showSources}
-                    followedOutlets={this.state.followedOutlets}
-                    followOutlet={this.followOutlet}
-                    unfollowOutlet={this.unfollowOutlet}/>
-                {
-                    newsPanelArr.length > 0
-                    ? 
-                    newsPanelArr
-                    : 
-                    <div className="empty_news_panel_holder">
-                        <div className='empty_news_panel_holder_text'>
-                            <p>Once You follow a news outlet your stories will display here!</p>
-                        </div>    
-                    </div> 
-                    
-                    }
+                <div className="container">
+                    <NewsSources
+                        showSources={this.state.showSources}
+                        followedOutlets={this.state.followedOutlets}
+                        followOutlet={this.followOutlet}
+                        unfollowOutlet={this.unfollowOutlet}/>
+                    <div className={'news_panels_container ' + (this.state.showSources ? 'hidden_panel' :'full_panel')} > 
+                        {
+                        newsPanelArr.length > 0
+                        ? 
+                        newsPanelArr
+                        : 
+                        <div className="empty_news_panel_holder">
+                            <div className='empty_news_panel_holder_text'>
+                                <p>Once You follow a news outlet your stories will display here!</p>
+                            </div>    
+                        </div> 
+                        
+                        }
+                    </div>
+                </div>
             </div>
         );
     }
