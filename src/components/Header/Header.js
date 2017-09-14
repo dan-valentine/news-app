@@ -1,15 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './Header.css';
+import home from './../../home.png';
+import setting from './../../setting.png';
 
 export default function Header(user) {
     return (
-        <div>
-            <div>
-                <Link to='/dashboard'>Home</Link>
-                <Link to='/edit'>edit</Link>
+        <div className='header_container'>
+            <div className='links_container'>
+                <Link className='link' to='/dashboard'>
+                    <img src={home} alt='home'/>
+                </Link>
+                <Link className='link' to='/edit'>
+                    <img className='setting_icon' src={setting} alt='settings'/>
+                </Link>
             </div>
-            <div>
-                <Link to='/'>Logout</Link>
+            <h1>Newsly</h1>
+            <div className='logout_container'>
+                <Link className='link' to='/'>Logout</Link>
             </div>
         </div>
     );

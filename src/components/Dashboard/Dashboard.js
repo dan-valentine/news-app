@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import NewsSources from './NewsSources/NewsSources';
 import NewsPanel from './NewsPanel/NewsPanel';
 import Header from './../Header/Header';
-import axios from 'axios';
+import './Dashboard.css';
 
 export default class Dashboard extends Component {
     constructor(){
         super();
         this.state = {
-            followedOutlets: []
+            followedOutlets: [],
+            showSources: false
         };
 
         this.followOutlet = this.followOutlet.bind(this);
@@ -22,8 +24,19 @@ export default class Dashboard extends Component {
         });
     }
 
+    showSources(){
+        this.setState({
+            showSources: true
+        });
+    }
+
+    hideSources(){
+        this.setState({
+            showSources: false
+        });
+    }
+
     followOutlet(body){
-        console.log(body)
         axios.post('/api/news_sources', body).then(resp =>{
             axios.get('/api/news_sources').then(resp =>{
                 this.setState({
@@ -33,9 +46,7 @@ export default class Dashboard extends Component {
         });
     }
 
-    unfollowOutlet(body){
-        console.log(JSON.stringify(body));
-        let {sourceID} = body;
+    unfollowOutlet(sourceID){
         axios.delete(`/api/news_sources?sourceID=${sourceID}`).then(_ =>{
             axios.get('/api/news_sources').then(resp =>{
                 this.setState({
@@ -52,13 +63,38 @@ export default class Dashboard extends Component {
                 outlet={outlet} />
         )
         return (
-            <div>
+            <div className='dashboard_container'>
                 <Header/>
-                <NewsSources 
-                    followedOutlets={this.state.followedOutlets}
-                    followOutlet={this.followOutlet}
-                    unfollowOutlet={this.unfollowOutlet}/>
-                {newsPanelArr}
+                <div>
+                    {
+                        this.state.showSources
+                        ? 
+                        <button className='show_sources_btn' onClick={_=>this.hideSources()}>&larr; Hide Sources </button>
+                        : 
+                        <button className='show_sources_btn' onClick={_=>this.showSources()}>Show Sources &rarr;</button>
+                    }
+                    </div>
+                <div className="container">
+                    <NewsSources
+                        showSources={this.state.showSources}
+                        followedOutlets={this.state.followedOutlets}
+                        followOutlet={this.followOutlet}
+                        unfollowOutlet={this.unfollowOutlet}/>
+                    <div className={'news_panels_container ' + (this.state.showSources ? 'hidden_panel' :'full_panel')} > 
+                        {
+                        newsPanelArr.length > 0
+                        ? 
+                        newsPanelArr
+                        : 
+                        <div className="empty_news_panel_holder">
+                            <div className='empty_news_panel_holder_text'>
+                                <p>Once You follow a news outlet your stories will display here!</p>
+                            </div>    
+                        </div> 
+                        
+                        }
+                    </div>
+                </div>
             </div>
         );
     }

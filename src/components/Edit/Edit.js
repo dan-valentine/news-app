@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './../Header/Header';
+import './Edit.css';
 
 export default class Edit extends Component {
     constructor(){
@@ -65,25 +66,29 @@ export default class Edit extends Component {
 
     render () {
         return (
-            <div>
+            <div className='edit_container'>
                 <Header/>
-                <img src={this.state.img} />
-                <span>username: 
-                    <input 
-                        value={this.state.username} 
-                        onChange={e=>this.changeUsername(e.target.value)}/>
-                </span>
-                <span>name: 
-                    <input 
-                        value={this.state.name}
-                        onChange={e=>this.changeName(e.target.value)}/>
-                </span>
-                <span>email: 
-                    <input 
-                        value={this.state.email}
-                        onChange={e=>this.changeEmail(e.target.value)}/>
-                </span>
-                <button onClick={this.editProfile}>Edit</button>
+                <div className='edit_body_container'>
+                    <img className='profile_img' src={this.state.img} alt='profile_image' />
+                    <div className='profile_settings'>
+                        <span>username: 
+                            <input 
+                                value={this.state.username} 
+                                onChange={e=>this.changeUsername(e.target.value)}/>
+                        </span>
+                        <span>name: 
+                            <input 
+                                value={this.state.name}
+                                onChange={e=>this.changeName(e.target.value)}/>
+                        </span>
+                        <span>email: 
+                            <input 
+                                value={this.state.email}
+                                onChange={e=>this.changeEmail(e.target.value)}/>
+                        </span>
+                        <button className='edit_button' onClick={this.editProfile}>Edit</button>
+                    </div>
+                </div>
             </div>
         );
     }
