@@ -15,9 +15,9 @@
 }
 .empty_news_panel_holder{
     width: 100%;
-    margin: 15px;
     padding: 5px;
     border-radius: 5px;
+    margin-top: 10px;
     background: #293B49;
 }
 .empty_news_panel_holder_text{
@@ -37,6 +37,12 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+    .news_panels_container{
+        width: 75%;
+    }
+    .empty_news_panel_holder{
+        width: 100%
+    }
     .show_sources_btn{
         display: none;
     }
@@ -47,5 +53,20 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-
+    .empty_news_panel_holder{
+        margin-top: 20px;
+    }
+    
+}
+@media(min-width: 1200px){
+    .container {
+        width: 1170px;
+        background: #6BCAE9;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .dashboard_container {
+        background: #ECE8DD;
+        
+    }
 }

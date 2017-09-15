@@ -11,7 +11,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border: solid 3px #FF5102;
-    padding: 3px;  
+    padding: 5px;  
 }
 
 .article_link{
@@ -19,7 +19,8 @@
 }
 
 .article_info h3{
-    font-size: 22px;    
+    font-size: 20px;    
+    text-align: center;
 }
 
 .article_info h4{
@@ -53,7 +54,7 @@
 }
 @media (min-width: 1200px){
     .article_container{
-        width: 25%;
+        width: calc(100%/3);
         padding: 10px;
     }
 }
