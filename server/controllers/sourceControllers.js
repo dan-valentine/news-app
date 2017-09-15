@@ -1,28 +1,27 @@
 module.exports = {
     addSource: (req, res) =>{
         const dbInstance = req.app.get("db"); 
-        const {userID} = req.session.user;
+        const {user_id} = req.user;
         const {sourceID, name, description, url} = req.body;
         
-        dbInstance.addNewsSource([sourceID, name, description, url, userID]).then(source =>{
+        dbInstance.addNewsSource([sourceID, name, description, url, user_id]).then(source =>{
             res.status(200).send(source);
         });
     },
     removeSource: (req, res) =>{
         const dbInstance = req.app.get("db");
-        const {userID} = req.session.user;
+        const {user_id} = req.user;
         const {sourceID} = req.query;
-        console.log(JSON.stringify(req.query) +"--"+ userID);
-        dbInstance.removeNewsSource([sourceID, userID]).then(_ =>{
+        dbInstance.removeNewsSource([sourceID, user_id]).then(_ =>{
             res.status(202).send();
         });
 
     }, 
     getSources: (req, res) =>{
         const dbInstance = req.app.get("db");
-        const {userID} = req.session.user;
+        const {user_id} = req.user;
 
-        dbInstance.getNewsSources(userID).then(sources =>{
+        dbInstance.getNewsSources(user_id).then(sources =>{
             res.status(200).send(sources);
         });
     }
