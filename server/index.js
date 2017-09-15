@@ -106,8 +106,10 @@ app.get('/auth/callback', passport.authenticate('auth0', {
     failureRedirect: 'http://localhost:3000/#/'
 }));
 app.get('/auth/logout', (req, res)=>{
-    req.logOut();
-    res.redirect(302, 'http://localhost:3000/#/');
+    console.log(req.user);
+    req.logout();
+    console.log(req.user);
+    res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
 })
 
 
