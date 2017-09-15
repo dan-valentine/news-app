@@ -17,7 +17,7 @@ export default function Header(user) {
             </div>
             <h1>Newsly</h1>
             <div className='logout_container'>
-                <Link className='link' to='/'>Logout</Link>
+                <a className='link' href={process.env.REACT_APP_LOGOUT}>Logout</a>
             </div>
         </div>
     );
