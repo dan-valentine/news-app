@@ -4,7 +4,9 @@ export default class Login extends Component {
     render () {
         return (
             <div>
-                Login
+                <div>
+                    <button>Login</button>
+                </div>
             </div>
         );
     }
