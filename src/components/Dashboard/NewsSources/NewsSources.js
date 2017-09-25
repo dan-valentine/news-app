@@ -9,7 +9,8 @@ export default class Sources extends Component {
         this.state = {
             sources: [],
             filteredSources: [],
-            searchTerms: '',
+            searchTerm: '',
+            category: '',
             followedOutlets: props.followedOutlets,
             showSources: props.showSources
         }
@@ -21,7 +22,9 @@ export default class Sources extends Component {
                 sources: resp.data.sources,
                 filteredSources: resp.data.sources
             });
+            console.log(resp.data.sources)
         }).catch(err => console.log("failly fail" + err));
+
     }
 
     componentWillReceiveProps(nextProps){
@@ -29,16 +32,29 @@ export default class Sources extends Component {
             followedOutlets: nextProps.followedOutlets,
             showSources: nextProps.showSources
         });
+        
     }
     changeSearchTerm(val){
         val = val.toLowerCase();
         let tempFilteredArr = this.state.sources.filter(source => 
-            (source.name.toLowerCase().includes(val) || source.description.toLowerCase().includes(val)))
+            ((this.state.category ? source.category == this.state.category : true) &&
+                (source.name.toLowerCase().includes(val) || source.description.toLowerCase().includes(val))
+            ));
         this.setState({
-            searchTerms: val,
-            filteredSources: tempFilteredArr
+           filteredSources: tempFilteredArr,
+           searchTerm: val
         })
 
+    }
+    changeCategory(val){
+        let tempFilteredArr = this.state.sources.filter(source => 
+            ((val ? source.category == val : true) &&
+                (source.name.toLowerCase().includes(this.state.searchTerm) || source.description.toLowerCase().includes(this.state.searchTerm))
+            ));
+        this.setState({
+           filteredSources: tempFilteredArr,
+           category: val
+        })
     }
     render () {
         let newsOutletArr = this.state.filteredSources.map((outlet, i) => 
@@ -56,9 +72,23 @@ export default class Sources extends Component {
                     <span>
                         <input 
                             onChange={e => this.changeSearchTerm(e.target.value)}
-                            type='text'
-                            value={this.state.searchTerms} 
+                            type='text' 
+                            value={this.state.searchTerm}
                             placeholder='Search Outlets'/>
+                    </span>
+                    <span>
+                        <select onChange={e=>this.changeCategory(e.target.value)}>
+                            <option value=''>all</option>
+                            <option value="business">business</option>
+                            <option value="entertainment">entertainment</option>
+                            <option value="gaming">gaming</option>
+                            <option value="general">general</option>
+                            <option value="music">music</option>
+                            <option value="politics">politics</option>
+                            <option value="science-and-nature">science-and-nature</option>
+                            <option value="sport">sport</option>
+                            <option value="technology">technology</option>
+                        </select>
                     </span>
                 </div>
                 {newsOutletArr}
