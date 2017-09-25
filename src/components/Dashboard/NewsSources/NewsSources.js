@@ -22,7 +22,6 @@ export default class Sources extends Component {
                 sources: resp.data.sources,
                 filteredSources: resp.data.sources
             });
-            console.log(resp.data.sources)
         }).catch(err => console.log("failly fail" + err));
 
     }
@@ -37,7 +36,7 @@ export default class Sources extends Component {
     changeSearchTerm(val){
         val = val.toLowerCase();
         let tempFilteredArr = this.state.sources.filter(source => 
-            ((this.state.category ? source.category == this.state.category : true) &&
+            ((this.state.category ? source.category === this.state.category : true) &&
                 (source.name.toLowerCase().includes(val) || source.description.toLowerCase().includes(val))
             ));
         this.setState({
@@ -48,7 +47,7 @@ export default class Sources extends Component {
     }
     changeCategory(val){
         let tempFilteredArr = this.state.sources.filter(source => 
-            ((val ? source.category == val : true) &&
+            ((val ? source.category === val : true) &&
                 (source.name.toLowerCase().includes(this.state.searchTerm) || source.description.toLowerCase().includes(this.state.searchTerm))
             ));
         this.setState({
