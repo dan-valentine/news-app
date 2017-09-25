@@ -33,9 +33,4 @@
     .news_panel_title{
         width: 100%;
     }
-    .news_panel_container{
-        margin-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-    }
 }
