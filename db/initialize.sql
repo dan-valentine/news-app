@@ -18,3 +18,14 @@ CREATE TABLE news_source_look_up
         url TEXT,
         user_id INTEGER REFERENCES users
     );
+CREATE TABLE saved_news_articles
+    (
+        saved_news_articles_id SERIAL PRIMARY KEY,
+        user_id integer references users,
+        title VARCHAR(160),
+        urlToImage TEXT,
+        url TEXT,
+        author varchar(60),
+        description text
+    );
+

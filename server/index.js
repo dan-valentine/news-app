@@ -8,6 +8,7 @@ const express = require('express'),
     passport = require('passport'),
     Auth0Strategy = require('passport-auth0'),
     userCtr = require('./controllers/userControllers'),
+    savedCtr = require('./controllers/savedControllers'),
     sourceCtr = require('./controllers/sourceControllers');
 
 const app = express();
@@ -106,7 +107,6 @@ app.get('/auth/callback', passport.authenticate('auth0', {
     failureRedirect: 'http://localhost:3000/#/'
 }));
 app.get('/auth/logout', (req, res)=>{
-    console.log(req.user);
     req.logout();
     console.log(req.user);
     res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
@@ -117,6 +117,11 @@ app.get('/auth/logout', (req, res)=>{
 app.post('/api/news_sources', sourceCtr.addSource);
 app.get('/api/news_sources', sourceCtr.getSources);
 app.delete('/api/news_sources', sourceCtr.removeSource);
+
+//saved stories endpoints
+app.post('/api/saved_stories', savedCtr.addSavedStory);
+app.get('/api/saved_stories', savedCtr.getSavedStories);
+app.delete('/api/saved_stories/:id', savedCtr.deleteSavedStory);
 
 //user endpoints
 app.put('/api/user', userCtr.updateUser);
