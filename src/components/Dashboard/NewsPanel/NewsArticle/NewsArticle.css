@@ -5,12 +5,9 @@
 .article_container{
     display: block;
     width: 100%;
-}
-.article_info{
     background: #FFF1F9;
     margin-bottom: 15px;
     font-style: normal;
-    color: black;
     text-decoration-line: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -20,18 +17,19 @@
 
 .article_link{
     text-decoration-line: none;
+    color: black;
 }
 
-.article_info h3{
+.article_container h3{
     font-size: 20px;    
     text-align: center;
 }
 
-.article_info h4{
+.article_container h4{
     font-weight: 700;
 }
 
-.article_info h5{
+.article_container h5{
     font-weight: 500;
     margin-bottom: 4px;
 }

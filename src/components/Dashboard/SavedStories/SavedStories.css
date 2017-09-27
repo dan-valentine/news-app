@@ -1,0 +1,15 @@
+.saved_container{
+    padding: 5px;
+}
+@media(min-width: 1200px){
+    .saved_articles_container {
+        width: 1170px;
+        background: #6BCAE9;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .saved_container {
+        background: #ECE8DD;
+        
+    }
+}

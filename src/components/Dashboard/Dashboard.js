@@ -10,16 +10,24 @@ export default class Dashboard extends Component {
         super();
         this.state = {
             followedOutlets: [],
-            showSources: false
+            showSources: false,
+            savedStories: []
         };
 
         this.followOutlet = this.followOutlet.bind(this);
         this.unfollowOutlet = this.unfollowOutlet.bind(this);
+        this.saveStory = this.saveStory.bind(this);
+        this.removeStory = this.removeStory.bind(this);
     }
     componentDidMount(){
         axios.get('/api/news_sources').then(resp =>{
             this.setState({
                 followedOutlets: resp.data
+            });
+        });
+        axios.get('/api/saved_stories').then(resp =>{
+            this.setState({
+                savedStories: resp.data
             });
         });
     }
@@ -56,11 +64,30 @@ export default class Dashboard extends Component {
         });
     }
 
+    removeStory(savedNewsArticleId){
+        axios.delete(`api/saved_stories/${savedNewsArticleId}`).then(resp=>{
+            this.setState({
+                savedStories: resp.data
+            });
+        })
+    }
+
+    saveStory(article){
+        axios.post('/api/saved_stories', article).then(resp=>{
+            this.setState({
+                savedStories: resp.data
+            });
+        })
+    }
+
     render () {
         let newsPanelArr = this.state.followedOutlets.map((outlet, i )=> 
             <NewsPanel 
                 key={i} 
-                outlet={outlet} />
+                outlet={outlet} 
+                saveStory={this.saveStory}
+                savedStories={this.state.savedStories}
+                removeStory={this.removeStory}/>
         )
         return (
             <div className='dashboard_container'>
