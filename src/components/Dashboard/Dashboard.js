@@ -19,6 +19,7 @@ export default class Dashboard extends Component {
         this.saveStory = this.saveStory.bind(this);
         this.removeStory = this.removeStory.bind(this);
     }
+
     componentDidMount(){
         axios.get('/api/news_sources').then(resp =>{
             this.setState({

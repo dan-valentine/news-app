@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import saveIcon from './../../../../images/ic_bookmark_border_black_24px.svg'
+import savedIcon from './../../../../images/ic_bookmark_black_24px.svg'
 import './NewsArticle.css';
 
 export default class NewsArticle extends Component {
@@ -36,9 +38,9 @@ export default class NewsArticle extends Component {
                         {
                             savedArticle
                             ?
-                            <button onClick={()=> this.props.removeStory(savedArticle.saved_news_articles_id)}>Delete</button>
+                            <img src={savedIcon} onClick={()=> this.props.removeStory(savedArticle.saved_news_articles_id)}/>
                             :
-                            <button onClick={() => this.props.saveStory(this.state.article)}>save</button>
+                            <img src={saveIcon} onClick={() => this.props.saveStory(this.state.article)} />
                         }
                     </div>
                     <a className='article_link' href={this.state.article.url} target='_blank' >
