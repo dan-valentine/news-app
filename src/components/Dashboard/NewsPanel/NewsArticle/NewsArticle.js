@@ -23,7 +23,14 @@ export default class NewsArticle extends Component {
                     <a className='article_link' href={this.state.article.url} target='_blank' >
                         <h3>{this.state.article.title}</h3>
                         {this.state.article.author ? <h5>by: {this.state.article.author} </h5> : <p></p>}
-                        <img className='article_img' src={this.state.article.urlToImage} alt={this.state.article.title} />
+                        {
+                        this.state.article.urlToImage 
+                        ? 
+                            <img className='article_img' src={this.state.article.urlToImage} alt={this.state.article.title} />
+                        :
+                            <img className='article_img' src={this.state.article.urltoimage} alt={this.state.article.title} />
+
+                        }
                     </a>
                     <div>
                         {

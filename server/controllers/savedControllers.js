@@ -18,7 +18,7 @@ module.exports = {
     getSavedStories: (req, res) =>{
         const dbInstance = req.app.get("db"); 
         const {user_id} = req.user;
-        
+        console.log("hello");
         dbInstance.getSavedStories(user_id).then(articles=>res.send(articles))
             .catch(err=>{
                 console.log(err);
@@ -29,7 +29,7 @@ module.exports = {
     deleteSavedStory: (req, res) =>{
         const dbInstance = req.app.get("db");
         const {user_id} = req.user;
-        
+
         dbInstance.removeSavedStory(req.params.id).then(()=>{
             dbInstance.getSavedStories(user_id).then(articles=>res.send(articles))
             .catch(err=>{

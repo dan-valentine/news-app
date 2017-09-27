@@ -29,7 +29,7 @@ export default class Dashboard extends Component {
             this.setState({
                 savedStories: resp.data
             });
-        })
+        });
     }
 
     showSources(){

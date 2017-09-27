@@ -14,6 +14,9 @@ export default function Header(user) {
                 <Link className='link' to='/edit'>
                     <img className='setting_icon' src={setting} alt='settings'/>
                 </Link>
+                <Link className='link' to='/save'>
+                    <img className='setting_icon' src={setting} alt='saved'/>
+                </Link>
             </div>
             <h1>Newsly</h1>
             <div className='logout_container'>
