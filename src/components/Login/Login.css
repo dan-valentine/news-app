@@ -41,23 +41,10 @@
     width: 100%;
 }
 .main_container{
-    position: absolute;
-    top: 100px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    perspective: 100px;
     background: #ECE8DD;
 }
 .parallax_1{
-    position: absolute;
-    top: 100px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    background: url('./../../images/newspapers.jpeg');
+    background: url('./../../images/newspapers.jpeg') fixed;
     background-size: cover;    
     height: 80vh;
     display: flex;
@@ -66,8 +53,8 @@
     color: #ECE8DD;
     font-family: 'Times New Roman', Times, serif;
     font-size: 100px;
+    text-align: center;
     text-shadow: 1px 1px 1px black;
-    transform: translateZ(-100px) scale(2);
 }
 .parallax_2{
     background: url('./../../images/satellite.jpeg') fixed;

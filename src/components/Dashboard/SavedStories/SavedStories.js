@@ -9,7 +9,8 @@ export default class SavedStories extends Component {
     constructor(){
         super();
         this.state = {
-            savedStories: []
+            savedStories: [],
+            filteredStories: []
         }
         this.removeStory = this.removeStory.bind(this);
         this.saveStory = this.saveStory.bind(this);
@@ -19,7 +20,8 @@ export default class SavedStories extends Component {
         axios.get('/api/saved_stories').then(resp =>{
             console.log(resp);
             this.setState({
-                savedStories: resp.data
+                savedStories: resp.data,
+                filteredStories: resp.data
             });
         });
     }
@@ -27,12 +29,14 @@ export default class SavedStories extends Component {
     removeStory(savedNewsArticleId){
         axios.delete(`api/saved_stories/${savedNewsArticleId}`).then(resp=>{
             this.setState({
-                savedStories: resp.data
+                savedStories: resp.data,
+                filteredStories: resp.data
             });
         })
     }
 
     saveStory(article){
+        
         axios.post('/api/saved_stories', article).then(resp=>{
             this.setState({
                 savedStories: resp.data
@@ -40,8 +44,18 @@ export default class SavedStories extends Component {
         })
     }
 
+    filter(val){
+        val = val.toLowerCase();
+        let tempFilteredArr = this.state.savedStories.filter(story => 
+                (story.title.toLowerCase().includes(val) || story.description.toLowerCase().includes(val))
+            )
+        this.setState({
+            filteredStories: tempFilteredArr
+        })
+    }
+
     render () {
-        let articlesArr = this.state.savedStories.map((article, i) => 
+        let articlesArr = this.state.filteredStories.map((article, i) => 
             <NewsArticle 
             key={i} 
             article={article}
@@ -55,6 +69,10 @@ export default class SavedStories extends Component {
             <div className='saved_container'>
                 <Header/>
                 <div className='saved_articles_container'>
+                    <div className='saved_Stories_filter_container'>
+                        <span>Search:</span>
+                        <input type='text' placeholder='type to start searching' onChange={e=> this.filter(e.target.value)}/>
+                    </div>
                     <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
                         <Masonry gutter="10px">
                             {articlesArr}

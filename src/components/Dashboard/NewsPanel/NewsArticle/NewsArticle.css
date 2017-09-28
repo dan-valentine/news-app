@@ -33,7 +33,11 @@
     font-weight: 500;
     margin-bottom: 4px;
 }
-
+.social_actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
     

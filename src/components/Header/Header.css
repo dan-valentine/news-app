@@ -7,6 +7,11 @@
     justify-content: space-between;
     width: calc(100%+10px);
 }
+.header_container h1{
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: 26px;
+}
 .links_container{
     display: flex;
     justify-content: space-between;

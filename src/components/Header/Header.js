@@ -19,7 +19,7 @@ export default function Header(user) {
                     <img className='setting_icon' src={saveIcon} alt='saved'/>
                 </Link>
             </div>
-            <h1>Newsly</h1>
+            <h1>BucketHead News</h1>
             <div className='logout_container'>
                 <a className='link' href={process.env.REACT_APP_LOGOUT}>Logout</a>
             </div>
