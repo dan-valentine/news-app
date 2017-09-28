@@ -2,17 +2,18 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    
 }
 .login_box{
+    padding: 10px;
     background: #FF5102;
-    width: 250px;
-    height: 300px;
+    width: 100%;
+    height: 100px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 .login_btn{
@@ -29,10 +30,66 @@
     color: white;
 }
 .login_logo_container{
-    height: 150px;
-    width: 150px;
-    padding: 20px;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
     margin: 10px;
     border-radius: 100%;
     background:#ECE8DD; 
+}
+.paralaxed_img{
+    width: 100%;
+}
+.main_container{
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    perspective: 100px;
+    background: #ECE8DD;
+}
+.parallax_1{
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: url('./../../images/newspapers.jpeg');
+    background-size: cover;    
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ECE8DD;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100px;
+    text-shadow: 1px 1px 1px black;
+    transform: translateZ(-100px) scale(2);
+}
+.parallax_2{
+    background: url('./../../images/satellite.jpeg') fixed;
+    background-size: cover;   
+    height: 80vh;
+}
+.parallax_3{
+    background: url('./../../images/newscamera.jpeg') fixed;
+    background-size: cover;
+    height: 80vh;
+}
+.efaGep{
+    color:white;
+}
+.landing_container {
+    background: #ECE8DD;
+    padding: 15px;
+    z-index: 10000000000;
+}
+@media(min-width: 1200px){
+    .landing_container {
+        width: 1170px;
+        margin: 0 auto;
+    }
 }
