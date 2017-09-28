@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Typing, {Backspace, Delay} from 'react-typing-animation';
+import Typing, {Backspace, Delay, Speed} from 'react-typing-animation';
 import axios from 'axios';
 
 export default class TypingNews extends Component {
@@ -22,6 +22,7 @@ export default class TypingNews extends Component {
         let nameArr = this.state.sources.map((source, i) => {
             return (
                 <span key={i}>
+                    <Speed ms={150} />
                     {source.name}
                     <Backspace count={source.name.length} delay={500} speed={50} />
                     <Delay ms={250} />
@@ -34,7 +35,7 @@ export default class TypingNews extends Component {
                 {
                     nameArr.length
                     &&
-                    <Typing loop={true}>
+                    <Typing loop={true} speed={150}>
                         <span>Get News From </span>
                         {nameArr}
                     </Typing>
