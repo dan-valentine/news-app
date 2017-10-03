@@ -1,11 +1,29 @@
 .saved_container{
     padding: 5px;
 }
+.saved_articles_container{
+    background: #6BCAE9;
+    padding: 15px;
+}
+.saved_Stories_filter_container{
+    background: #293B49;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.saved_Stories_filter_container span{
+    color: white;
+    padding: 2px;
+}
+.saved_Stories_filter_container input{
+    border-radius: 5px;
+    padding: 3px;
+}
+
 @media(min-width: 1200px){
     .saved_articles_container {
         width: 1170px;
-        background: #6BCAE9;
-        padding: 15px;
+       
         margin: 0 auto;
     }
     .saved_container {

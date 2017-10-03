@@ -1,0 +1,60 @@
+.typing_container{
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: calc(100vw*1841/1200);
+    top: calc((50vw*1841/1200) - 50vh + 100px);
+    
+}
+.typing_container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: calc(15vw*1841/1200);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    text-align: center;
+}
+.efaGep{
+    color:white;
+}
+
+@media (min-width: 576px) { 
+    .typing_container div{
+        font-size: 36px;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+    .typing_container div{
+        font-size: 48px;
+    }
+}
+    
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .typing_container div{
+        font-size: 60px;
+    }
+    
+    
+}
+@media(min-width: 1200px){
+    typing_container div{
+        font-size: 72px;
+    }
+
+    .typing_container{
+        width: 1200px;
+        height: 1841px;
+        top: calc(1020.5px - 50vh);
+    }
+    .typing_container div{
+        height: 300px;
+    }
+}

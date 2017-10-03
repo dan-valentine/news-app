@@ -67,16 +67,19 @@ export default class Sources extends Component {
         )
         return (
             <div className={this.state.showSources ? "outlets_container show_sources" : "outlets_container"} >
-                <div>
+                <div className='outlet_search_container'>
                     <span>
                         <input 
+                            className='search_box'
                             onChange={e => this.changeSearchTerm(e.target.value)}
                             type='text' 
                             value={this.state.searchTerm}
                             placeholder='Search Outlets'/>
                     </span>
                     <span>
-                        <select onChange={e=>this.changeCategory(e.target.value)}>
+                        <select 
+                        className='sort_box'
+                        onChange={e=>this.changeCategory(e.target.value)}>
                             <option value=''>all</option>
                             <option value="business">business</option>
                             <option value="entertainment">entertainment</option>
