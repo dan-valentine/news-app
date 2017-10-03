@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Typing, {Backspace, Delay, Speed} from 'react-typing-animation';
 import axios from 'axios';
+import './TypingNews.css';
 
 export default class TypingNews extends Component {
     constructor() {
@@ -30,13 +31,13 @@ export default class TypingNews extends Component {
             )
         })
         return (
-            <div>
+            <div className='typing_container'>
 
                 {
                     nameArr.length
                     &&
                     <Typing loop={true} speed={150}>
-                        <span>Get News From </span>
+                        <span>Get News From&nbsp;</span>
                         {nameArr}
                     </Typing>
                 }

@@ -45,9 +45,9 @@ export default class NewsArticle extends Component {
                     {
                         this.state.article.urlToImage
                             ?
-                            <img className='article_img' src={this.state.article.urlToImage} alt={this.state.article.title} />
+                            <img alt={this.state.article.title} className='article_img' src={this.state.article.urlToImage} alt={this.state.article.title} />
                             :
-                            <img className='article_img' src={this.state.article.urltoimage} alt={this.state.article.title} />
+                            <img alt={this.state.article.title} className='article_img' src={this.state.article.urltoimage} alt={this.state.article.title} />
 
                     }
                 </a>

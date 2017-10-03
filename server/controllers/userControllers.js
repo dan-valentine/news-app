@@ -4,7 +4,7 @@ module.exports = {
         const {user_id} = req.user;
         const {username, email, name} = req.body;
 
-        dbInstance.editUser([userID, username, email, name]).then(user =>{
+        dbInstance.editUser([user_id, username, email, name]).then(user =>{
             res.status(200).send(req.user);
         })
     }, getUSer: (req, res) => {

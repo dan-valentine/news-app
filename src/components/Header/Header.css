@@ -10,7 +10,7 @@
 .header_container h1{
     color: white;
     text-shadow: 1px 1px 1px black;
-    font-size: 26px;
+    font-size: 16px;
 }
 .links_container{
     display: flex;
@@ -25,9 +25,24 @@
 .setting_icon{
     width: 25px;
 }
+@media(min-width: 672px){
+    .header_container h1{
+        font: 24px;
+    }
+    
+}
+@media(min-width: 992px){
+    .header_container h1{
+        font: 36px;
+    }
+    
+}
 @media(min-width: 1200px){
     .header_container{
         margin-bottom: 0;
+    }
+    .header_container h1{
+        font: 50px;
     }
     
 }
