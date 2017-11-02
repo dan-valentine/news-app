@@ -19,6 +19,7 @@ const app = express();
 ///TOPLEVEL MIDDELWARE///
 /////////////////////////
 // app.use(cors());
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(session({
     secret:process.env.SESSION_SECRET,
     saveUninitialized: true,
@@ -59,6 +60,7 @@ passport.use(new Auth0Strategy({
     callbackURL: process.env.AUTH_CALLBACK
 }, function(processToken, refreshToken, extraParams, profile, done){
     const db = app.get('db');
+
     db.findUser(profile.id).then(user =>{
         if(user.length){
             return done(null, user[0]);
@@ -108,7 +110,6 @@ app.get('/auth/callback', passport.authenticate('auth0', {
 }));
 app.get('/auth/logout', (req, res)=>{
     req.logout();
-    console.log(req.user);
     res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
 })
 
