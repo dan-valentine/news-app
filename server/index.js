@@ -18,7 +18,7 @@ const app = express();
 /////////////////////////
 ///TOPLEVEL MIDDELWARE///
 /////////////////////////
-// app.use(cors());
+app.use(cors());
 app.use( express.static( `${__dirname}/../build` ) );
 app.use(session({
     secret:process.env.SESSION_SECRET,
