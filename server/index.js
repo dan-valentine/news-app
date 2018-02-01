@@ -105,8 +105,8 @@ massive(process.env.CONNECTIONSTRING).then(db => {
 //auth endpoints
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/dashboard',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
 }));
 app.get('/auth/logout', (req, res)=>{
     req.logout();
