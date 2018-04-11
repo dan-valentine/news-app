@@ -153,6 +153,7 @@
 .example_source{
     display: flex;
     width: 250px;
+    min-height: 75px;
     margin: 10px;
     border-radius: 5px;
     border: solid 10px #6BCAE9;
