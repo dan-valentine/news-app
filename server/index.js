@@ -105,12 +105,12 @@ massive(process.env.CONNECTIONSTRING).then(db => {
 //auth endpoints
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/dashboard',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: process.env.SUCCESS_REDIRECT,
+    failureRedirect: process.env.FAILURE_REDIRECT
 }));
 app.get('/auth/logout', (req, res)=>{
     req.logout();
-    res.redirect(302, 'https://dvalentine.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost%3A3000%2F');
+    res.redirect(302, process.env.LOGOUT_URL);
 })
 
 
@@ -131,7 +131,7 @@ app.get('/api/user', userCtr.getUSer);
 ///////////////
 ///LISTENING///
 ///////////////
-const port = 4000;
-app.listen(port, ()=>{
-    console.log(`Yo, What up? i'm port ${port} and welcome to my crib`);
+const {SERVER_PORT }= process.env;
+app.listen(SERVER_PORT, ()=>{
+    console.log(`Yo, What up? i'm port ${SERVER_PORT} and welcome to my crib`);
 })
